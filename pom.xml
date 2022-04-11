@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.github.kevinstern</groupId>
-  <artifactId>software-and-algorithms</artifactId>
-  <version>1.0</version>
+  <groupId>io.github.yufeixuan</groupId>
+  <artifactId>hungarian-algorithms</artifactId>
+  <version>1.1</version>
 
   <name>Software and Algorithms</name>
   <description>Neat algorithm implementations in Java</description>
@@ -24,8 +24,8 @@
   </developers>
 
   <scm>
-    <connection>scm:git:git://github.com/KevinStern/software-and-algorithms.git</connection>
-    <developerConnection>scm:git:ssh://github.com/KevinStern/software-and-algorithms.git</developerConnection>
+    <connection>scm:git:git://github.com/yufeixuan/software-and-algorithms.git</connection>
+    <developerConnection>scm:git:ssh://github.com/yufeixuan/software-and-algorithms.git</developerConnection>
     <url>https://www.github.com/KevinStern/software-and-algorithms</url>
   </scm>
 
@@ -64,6 +64,28 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <version>1.6.8</version>
+        <extensions>true</extensions>
+        <configuration>
+          <serverId>ossrh</serverId>
+          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+          <autoReleaseAfterClose>true</autoReleaseAfterClose>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.5.3</version>
+        <configuration>
+          <autoVersionSubmodules>true</autoVersionSubmodules>
+          <useReleaseProfile>false</useReleaseProfile>
+          <releaseProfiles>release</releaseProfiles>
+          <goals>deploy</goals>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
